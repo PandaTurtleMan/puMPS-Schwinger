@@ -1,0 +1,27 @@
+# The recipe for larger rings: converge a small ring, carry it to larger N, then grow D.
+# Seeding from a smaller ring is about 5x faster than an open-chain seed at N >= 28,
+# and it converges in cases where open-chain seeds get stuck.
+#     julia --project=. pumps.jl examples/n_ladder.toml
+# Roughly 15 minutes on one laptop core.
+
+[physics]
+x = 10.0
+me = 0.3
+theta = 0.0
+hmax = 3
+
+[ground]
+N = [12, 16, 20]  # N=12 from an open-chain seed, then 12 -> 16 -> 20 at the first D
+D = [4, 6]        # then D = 4 -> 6 at N=20
+tol = 1e-6
+maxit = 2500
+obc_D = 16
+
+[spectrum]
+momenta = [0, 1, 2]
+nev = 4
+solver = "dense"
+at = "all"        # spectrum at D=4 and D=6, to see how much the levels move with D
+
+[output]
+dir = "../runs/n_ladder"

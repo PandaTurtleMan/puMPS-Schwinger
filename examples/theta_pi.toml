@@ -1,0 +1,22 @@
+
+
+[physics]
+x = 10.0
+me = 0.2
+theta = 3.141592653589793
+hmax = 3
+
+[ground]
+N = 12
+D = [4, 6, 8]
+tol = 1e-6
+maxit = 2500
+obc_D = 16
+
+[spectrum]
+momenta = "all"
+nev = 4
+solver = "krylov" # the default; preferred near criticality
+
+[output]
+dir = "../runs/theta_pi"

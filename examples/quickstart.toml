@@ -1,0 +1,27 @@
+# Quickstart: a 12-site ring, small enough for a laptop (about 5 minutes on one core).
+#     julia --project=. pumps.jl examples/quickstart.toml
+# Every setting is explained in README.md; `julia pumps.jl --template` prints them all.
+
+[physics]
+x = 10.0          # x = 1/(a e)^2
+me = 0.3          # fermion mass m/e
+theta = 0.0       # background angle
+hmax = 3          # holonomy cutoff
+
+[ground]
+N = 12            # number of sites
+D = [4, 6]        # ground state at D=4 first, then grown to D=6
+tol = 1e-6        # converged when the gradient norm eta < tol
+maxit = 2500
+obc_D = 16        # bond dimension of the open-chain DMRG seed
+
+[spectrum]
+momenta = "all"   # k = 0, 1, 2, 3
+nev = 4           # levels per momentum
+solver = "dense"  # this point is gapped
+
+[ed]
+enabled = false   # set to true to compare with exact diagonalization (about 1 more minute)
+
+[output]
+dir = "../runs/quickstart"
