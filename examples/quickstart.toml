@@ -1,6 +1,4 @@
-# Quickstart: a 12-site ring, small enough for a laptop (about 5 minutes on one core).
-#     julia --project=. pumps.jl examples/quickstart.toml
-# Every setting is explained in README.md; `julia pumps.jl --template` prints them all.
+=
 
 [physics]
 x = 10.0          # x = 1/(a e)^2

@@ -1,8 +1,4 @@
-# The recipe for larger rings: converge a small ring, carry it to larger N, then grow D.
-# Seeding from a smaller ring is about 5x faster than an open-chain seed at N >= 28,
-# and it converges in cases where open-chain seeds get stuck.
-#     julia --project=. pumps.jl examples/n_ladder.toml
-# Roughly 15 minutes on one laptop core.
+
 
 [physics]
 x = 10.0
